@@ -1,7 +1,7 @@
 package com.airport.airportproject.controller;
 
 import com.airport.airportproject.exception.NoFlightsException;
-import com.airport.airportproject.service.AirportService;
+import com.airport.airportproject.facade.AirportFacade;
 import com.amadeus.exceptions.ResponseException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/airport")
 public class AirportController {
 
-    private final AirportService airportService;
+    private final AirportFacade airportFacade;
 
-    public AirportController(AirportService airportFacade) {
-        this.airportService = airportFacade;
+    public AirportController(AirportFacade airportFacade) {
+        this.airportFacade = airportFacade;
     }
 
     @GetMapping("/{IATAfrom}/{IATAto}/{dateFrom}/{dateTo}/{passengerNum}/{currency}")
@@ -27,7 +27,7 @@ public class AirportController {
                     @PathVariable int passengerNum,
                     @PathVariable String currency) throws ResponseException, NoFlightsException {
 
-        airportService.get(IATAfrom, IATAto, dateFrom, dateTo, passengerNum, currency);
+        airportFacade.get(IATAfrom, IATAto, dateFrom, dateTo, passengerNum, currency);
     }
 }
 
