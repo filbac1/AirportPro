@@ -18,13 +18,18 @@ public class AirportServiceImpl implements AirportService {
     }
 
     @Override
-    public Map<AirportTableForm, List<AirportTableForm>> get() {
+    public Map<AirportTableForm, List<AirportTableForm>> get(String syd, String bkk, String s, String s1, int i, String eur) {
         return airportRepository.get();
     }
 
     @Override
     public void save(Map<AirportTableForm, List<AirportTableForm>> map) {
         airportRepository.save(map);
+    }
+
+    @Override
+    public AirportTableForm getTable(String iatAf, String iatAt, String dateF, String dateT, int passNum, String curren) {
+        return airportRepository.getTable(iatAf, iatAt, dateF, dateT, passNum, curren);
     }
 
 

@@ -10,7 +10,6 @@ import com.amadeus.exceptions.ResponseException;
 import com.amadeus.resources.FlightOfferSearch;
 import lombok.Data;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,7 +34,7 @@ public class AirportFacadeImpl implements AirportFacade {
     @Override
     public void get(String IATAfrom, String IATAto, String dateFrom, String dateTo, int passengerNum, String currency) throws ResponseException, NoFlightsException {
         AirportTableForm searchForm = new AirportTableForm(IATAfrom, IATAto, dateFrom, dateTo, passengerNum, currency);
-        map = airportService.get();
+        map = airportService.get(IATAfrom, IATAto, dateFrom, dateTo, passengerNum, currency);
         if (map.containsKey(searchForm)) {
             for (int i = 0; i < map.get(searchForm).size(); i++) {
                 System.out.println(map.get(searchForm).get(i) + "Here we go again");
@@ -48,7 +47,7 @@ public class AirportFacadeImpl implements AirportFacade {
                             .and("departureDate", dateFrom)
                             .and("returnDate", dateTo)
                             .and("adults", passengerNum)
-                            .and("max", 200));
+                            .and("max", 1));
 
             if (flightOffersSearches.length != 0) {
                 for (int i = 0; i < flightOffersSearches.length; i++) {  // broj ponuda
@@ -69,5 +68,10 @@ public class AirportFacadeImpl implements AirportFacade {
                         "there are no bookable seats for the selected number of passengers");
             }
         }
+    }
+
+    @Override
+    public AirportTableForm getForm(String iatAf, String iatAt, String dateF, String dateT, int passNum, String curren) {
+        return airportService.getTable(iatAf, iatAt, dateF, dateT, passNum, curren);
     }
 }

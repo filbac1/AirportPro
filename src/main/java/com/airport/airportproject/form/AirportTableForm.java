@@ -42,16 +42,15 @@ public class AirportTableForm {
 
     @Override
     public String toString() {
-        return "AirportTableForm{" +
-                "airportFrom='" + airportFrom + '\'' +
-                ", airportTo='" + airportTo + '\'' +
-                ", departureDate='" + departureDate + '\'' +
-                ", returnDate='" + returnDate + '\'' +
-                ", departureTransfer=" + departureTransfer +
-                ", returnTransfer=" + returnTransfer +
-                ", numberOfPassenger=" + numberOfPassenger +
-                ", currency='" + currency + '\'' +
-                ", fullPrice=" + fullPrice +
+        return  "airportFrom = " + airportFrom + '\'' +
+                " airportTo = " + airportTo + '\'' +
+                " departureDate = " + departureDate + '\'' +
+                " returnDate = " + returnDate + '\'' +
+                " departureTransfer = " + departureTransfer +
+                " returnTransfer = " + returnTransfer +
+                " numberOfPassenger = " + numberOfPassenger +
+                " currency = " + currency + '\'' +
+                " fullPrice = " + fullPrice +
                 '}';
     }
 

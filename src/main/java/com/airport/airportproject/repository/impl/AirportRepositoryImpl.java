@@ -12,6 +12,12 @@ import java.util.Map;
 public class AirportRepositoryImpl implements AirportRepository {
 
     private Map<AirportTableForm, List<AirportTableForm>> mapRepo = new HashMap<>();
+    private List<AirportTableForm> list;
+
+    public List<AirportTableForm> getList() {
+        return list;
+    }
+
 
     @Override
     public Map<AirportTableForm, List<AirportTableForm>> get() {
@@ -21,5 +27,19 @@ public class AirportRepositoryImpl implements AirportRepository {
     @Override
     public void save(Map<AirportTableForm, List<AirportTableForm>> map) {
         mapRepo = map;
+    }
+
+    @Override
+    public AirportTableForm getTable(String iatAf, String iatAt, String dateF, String dateT, int passNum, String curren) {
+        AirportTableForm helpForm = new AirportTableForm(iatAf, iatAt, dateF, dateT, passNum, curren);
+        if (!(mapRepo.isEmpty())) {
+        List<AirportTableForm> helpList = mapRepo.get(helpForm);
+            for (int i = 0; i < helpList.size(); i++) {
+                if (helpForm.equals(helpList.get(i))) {
+                    return helpList.get(i);
+                }
+            }
+        }
+        return null;
     }
 }
