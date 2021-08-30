@@ -8,12 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AmadeusExample {
 
-    public static void main(String[] args) throws ResponseException {
+    public static void main(String[] args) throws Exception {
         SpringApplication.run(AmadeusExample.class, args);
 
-        Amadeus amadeus = Amadeus
-                .builder("xaHk1zkqebjwYpWnmpQvsOrMWeABjUcG", "Ta3qLdtXKkt23iSk")
-                .build();
+
 
 
     }

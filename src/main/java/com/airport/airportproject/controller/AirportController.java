@@ -2,25 +2,17 @@ package com.airport.airportproject.controller;
 
 import com.airport.airportproject.exception.NoFlightsException;
 import com.airport.airportproject.facade.AirportFacade;
-import com.airport.airportproject.form.AirportTableForm;
-import com.airport.airportproject.validator.Validator;
-import com.airport.airportproject.validator.ValidatorImplementation;
 import com.amadeus.exceptions.ResponseException;
 import lombok.Getter;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @Getter
-
-public class AirportController {
-
+public class AirportController  {
     private final AirportFacade airportFacade;
-    private final Validator validator;
-
-    public AirportController(AirportFacade airportFacade, ValidatorImplementation validator) {
+    public AirportController(AirportFacade airportFacade) {
         this.airportFacade = airportFacade;
-        this.validator = validator;
     }
 
     @GetMapping("airport/{IATAfrom}/{IATAto}/{dateFrom}/{dateTo}/{passengerNum}/{currency}")
@@ -30,12 +22,8 @@ public class AirportController {
                     @PathVariable String dateTo,
                     @PathVariable int passengerNum,
                     @PathVariable String currency) throws ResponseException, NoFlightsException {
-        boolean validate = validator.check(IATAfrom, IATAto, dateFrom, dateTo, passengerNum, currency);
-        if (validate == true) {
             airportFacade.get(IATAfrom, IATAto, dateFrom, dateTo, passengerNum, currency);
-        }
     }
-
     @GetMapping("airport/{IATAf}/{IATAt}/{dateF}/{dateT}/{passNum}/{curren}/getAirportForm")
     public AirportTableForm getTable(@PathVariable String IATAf,
                                      @PathVariable String IATAt,
@@ -45,7 +33,6 @@ public class AirportController {
                                      @PathVariable String curren) throws ResponseException, NoFlightsException {
 
         return airportFacade.getForm(IATAf, IATAt, dateF, dateT, passNum, curren);
-
     }
 
     @GetMapping("/helloWorld")
@@ -53,11 +40,24 @@ public class AirportController {
         return "Hello World !";
     }
 
-    @RequestMapping("/index")
-    public String text() {
-        return "index";
+    @GetMapping("/create-project")
+    public String createProjectForm(Model model) {
+        model.addAttribute("airport", new AirportTableForm());
+        return "create-project";
     }
+
+    @PostMapping("/save-project")
+    public String saveProjectSubmission(@ModelAttribute AirportTableForm airportTableForm) {
+
+        // TODO: save project in DB here
+
+        return "result";
+    }
+
+
+
 }
+
 
 
 
