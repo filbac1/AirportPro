@@ -49,8 +49,6 @@ public class AirportController  {
     @PostMapping("/save-project")
     public String saveProjectSubmission(@ModelAttribute AirportTableForm airportTableForm) {
 
-        // TODO: save project in DB here
-
         return "result";
     }
 
