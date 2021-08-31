@@ -1,9 +1,16 @@
 package com.airport.airportproject.form;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Objects;
 
 public class AirportTableForm {
+    @Min(3)
+    @Max(3)
     private String airportFrom;
+
+    @Min(3)
+    @Max(3)
     private String airportTo;
     private String departureDate;
     private String returnDate;

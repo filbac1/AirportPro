@@ -16,11 +16,11 @@
         <div class="form-row">
           <div class="col-md-6 form-group">
             <label>Airport from (IATA code) : </label>
-            <input type="text" class="form-control" th:field="*{airportFrom}">
+            <input type="text" class="form-control" required maxlength="3" th:field="*{airportFrom}">
           </div>
           <div class="col-md-6 form-group">
             <label>Airport to (IATA code) : </label>
-            <input type="text" class="form-control" th:field="*{airportTo}">
+            <input type="text" class="form-control" required maxlength="3" th:field="*{airportTo}">
           </div>
           <div class="col-md-6 form-group">
             <label>Date of leaving : </label>
@@ -32,7 +32,7 @@
           </div>
           <div class="col-md-6 form-group">
             <label>Number of passengers : </label>
-            <input type="number" step="any" class="form-control" th:field="*{numberOfPassenger}">
+            <input type="number" step="any" class="form-control" min="1" max="20" th:field="*{numberOfPassenger}">
           </div>
           <div class="col-md-6 form-group">
             <label> Currency : </label>
