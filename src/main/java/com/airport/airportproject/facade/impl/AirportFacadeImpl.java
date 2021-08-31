@@ -47,7 +47,7 @@ public class AirportFacadeImpl implements AirportFacade {
                             .and("departureDate", dateFrom)
                             .and("returnDate", dateTo)
                             .and("adults", passengerNum)
-                            .and("max", 1));
+                            .and("max", 10));
 
             if (flightOffersSearches.length != 0) {
                 for (int i = 0; i < flightOffersSearches.length; i++) {  // broj ponuda

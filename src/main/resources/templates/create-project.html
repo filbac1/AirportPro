@@ -11,7 +11,7 @@
 <div class="container my-3">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <h2>Create New Flight</h2>
+      <h2>Flight offer searcher</h2>
 
       <form th:action="@{/save-project}" th:object="${airportTableForm}" method="post">
         <div class="form-row">
@@ -36,8 +36,20 @@
             <input type="number" step="any" class="form-control" th:field="*{numberOfPassenger}">
           </div>
           <div class="col-md-6 form-group">
-            <label>Currency : </label>
-            <input type="text" class="form-control" th:field="*{currency}">
+            <label> Currency : </label>
+            <br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" th:field="*{currency}" id="option1" value="EUR">
+              <label class="form-check-label" for="option1">EUR</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" th:field="*{currency}" id="option2" value="HRK">
+              <label class="form-check-label" for="option2">HRK</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" th:field="*{currency}" id="option3" value="USD">
+              <label class="form-check-label" for="option3">USD</label>
+            </div>
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block mt-3">Save Flight</button>
