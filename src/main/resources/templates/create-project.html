@@ -13,10 +13,7 @@
     <div class="col-md-8 mx-auto">
       <h2>Create New Flight</h2>
 
-      <form th:action="@{/save-project}" th:object="${airport}" method="post">
-        <ul th:if="${#fields.hasErrors('*')}">
-          <li th:each="error : ${#fields.errors('*')}" th:text="${error}">error</li>
-        </ul>
+      <form th:action="@{/save-project}" th:object="${airportTableForm}" method="post">
         <div class="form-row">
           <div class="col-md-6 form-group">
             <label>Airport from (IATA code) : </label>
@@ -28,15 +25,15 @@
           </div>
           <div class="col-md-6 form-group">
             <label>Date of leaving : </label>
-            <input type="date" class="form-control" th:field="*{dateFrom}">
+            <input type="date" class="form-control" th:field="*{departureDate}">
           </div>
           <div class="col-md-6 form-group">
             <label>Date of return : </label>
-            <input type="date" class="form-control" th:field="*{dateTo}">
+            <input type="date" class="form-control" th:field="*{returnDate}">
           </div>
           <div class="col-md-6 form-group">
             <label>Number of passengers : </label>
-            <input type="number" step="any" class="form-control" th:field="*{numberOfPassengers}">
+            <input type="number" step="any" class="form-control" th:field="*{numberOfPassenger}">
           </div>
           <div class="col-md-6 form-group">
             <label>Currency : </label>

@@ -1,6 +1,6 @@
 package com.airport.airportproject.service;
 
-import com.airport.airportproject.controller.AirportTableForm;
+import com.airport.airportproject.form.AirportTableForm;
 
 import java.util.List;
 import java.util.Map;

@@ -2,8 +2,10 @@ package com.airport.airportproject.controller;
 
 import com.airport.airportproject.exception.NoFlightsException;
 import com.airport.airportproject.facade.AirportFacade;
+import com.airport.airportproject.form.AirportTableForm;
 import com.amadeus.exceptions.ResponseException;
 import lombok.Getter;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,21 +41,6 @@ public class AirportController  {
     public String helloWorld() {
         return "Hello World !";
     }
-
-    @GetMapping("/create-project")
-    public String createProjectForm(Model model) {
-        model.addAttribute("airport", new AirportTableForm());
-        return "create-project";
-    }
-
-    @PostMapping("/save-project")
-    public String saveProjectSubmission(@ModelAttribute AirportTableForm airportTableForm) {
-
-        return "result";
-    }
-
-
-
 }
 
 

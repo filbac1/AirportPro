@@ -1,6 +1,6 @@
 package com.airport.airportproject.repository.impl;
 
-import com.airport.airportproject.controller.AirportTableForm;
+import com.airport.airportproject.form.AirportTableForm;
 import com.airport.airportproject.repository.AirportRepository;
 import org.springframework.stereotype.Repository;
 

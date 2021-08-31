@@ -1,8 +1,4 @@
-package com.airport.airportproject.controller;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.airport.airportproject.form;
 
 import java.util.Objects;
 

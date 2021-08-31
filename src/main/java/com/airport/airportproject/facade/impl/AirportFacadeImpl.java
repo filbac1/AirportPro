@@ -1,7 +1,7 @@
 package com.airport.airportproject.facade.impl;
 
 import com.airport.airportproject.exception.NoFlightsException;
-import com.airport.airportproject.controller.AirportTableForm;
+import com.airport.airportproject.form.AirportTableForm;
 import com.airport.airportproject.facade.AirportFacade;
 import com.airport.airportproject.service.AirportService;
 import com.amadeus.Amadeus;

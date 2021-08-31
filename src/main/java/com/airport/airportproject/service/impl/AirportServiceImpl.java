@@ -2,7 +2,7 @@ package com.airport.airportproject.service.impl;
 
 import com.airport.airportproject.repository.AirportRepository;
 import com.airport.airportproject.service.AirportService;
-import com.airport.airportproject.controller.AirportTableForm;
+import com.airport.airportproject.form.AirportTableForm;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
